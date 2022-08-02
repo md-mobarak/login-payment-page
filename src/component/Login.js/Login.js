@@ -1,33 +1,61 @@
 import React from 'react';
-
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useForm } from 'react-hook-form';
+import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
+    const onSubmit = (data) => {
+        signInWithEmailAndPassword(data.email, data.password)
+        console.log(data)
+        toast.success("WoW Successfully Sign Up")
+
+    }
     return (
         <div>
-            <h3 className="font-semibold text-xl ml-4 my-10">Shipping and Payment</h3>
-            <form >
-                <div className='flex mb-3 ml-[-25px]'>
-                    <button className='text-white mx-10 rounded-full bg-green-300 px-5 py-2 bordered '>LOG IN</button>
-                    <button className='text-white rounded-full bg-green-300 px-5 py-2 bordered'>SIGN UP</button>
+            <div class="hero min-h-screen bg-base-200">
+                <div class="hero-content ">
+                    <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <div class="card-body">
+                                <h1 className='uppercase text-center text-2xl'>Login</h1>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Email</span>
+                                    </label>
+                                    <input type="text"
+                                        placeholder="email"
+                                        {...register("email", { required: true })}
+                                        class="input input-bordered" />
+                                </div>
+                                <div class="form-control">
+                                    <label class="label">
+                                        <span class="label-text">Password</span>
+                                    </label>
+                                    <input type="text"
+                                        placeholder="password"
+                                        {...register("password", { required: true })}
+                                        class="input input-bordered" />
+                                    <label class="label">
+                                        <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                                    </label>
+                                </div>
+                                <div class="form-control mt-6">
+                                    <button class="btn btn-primary">Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <p className='my-3 ml-4'>Shipping Information</p>
-                <div className='grid grid-cols-2 gap-x-0 gap-y-4 '>
-
-                    <input type="text" placeholder="Type here" class="input input-bordered input-md w-full max-w-xs rounded-full" />
-                    <input type="text" placeholder="Type here" class="input input-bordered input-md w-full max-w-xs rounded-full" />
-                    <input type="text" placeholder="Type here" class="input input-bordered input-md w-full max-w-xs rounded-full" />
-                    <input type="text" placeholder="Type here" class="input input-bordered input-md w-full max-w-xs rounded-full" />
-                    <input type="text" placeholder="Type here" class="input input-bordered input-md w-full max-w-xs rounded-full" />
-                    <input type="text" placeholder="Type here" class="input input-bordered input-md w-full max-w-xs rounded-full" />
-                    <input type="text" placeholder="Type here" class="input input-bordered input-md w-full max-w-xs rounded-full" />
-                    <select id="cars" className='input input-bordered input-md w-full max-w-xs rounded-full'>
-                        <option value="volvo">Bangladesh</option>
-                        <option value="saab">India</option>
-                        <option value="opel">Pakistan</option>
-                        <option value="audi">Sri Lanka</option>
-                    </select>
-
-                </div>
-            </form>
+            </div>
         </div>
     );
 };
