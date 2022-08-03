@@ -17,7 +17,6 @@ const Payment = () => {
     return (
         <div>
             <div className='flex justify-evenly mt-12 mr-16 ml-24'>
-
                 <img className='w-7 h-5 ml-[200px]' src={cart} alt="" />
                 <img className='w-7 h-5' src={shipping} alt="" />
             </div>
