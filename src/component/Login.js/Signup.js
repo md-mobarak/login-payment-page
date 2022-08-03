@@ -27,10 +27,12 @@ const SignUp = () => {
             <h3 className="font-semibold text-xl ml-4 my-10">Shipping and Payment</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='flex mb-3 ml-[-25px]'>
-                    <button onClick={() => navigate('/login')} className='text-white mx-10 rounded-full bg-green-300 px-5 py-2 bordered '>LOG IN</button>
-                    <button className='text-white rounded-full bg-green-300 px-5 py-2 bordered'>SIGN UP</button>
+                    <button
+                        className='text-white mx-10 rounded-full bg-green-300 px-5 py-2 bordered '>SIGN UP</button>
+                    <button className='text-white rounded-full bg-green-300 px-5 py-2 bordered'
+                        onClick={() => navigate('/login')} >LOG IN</button>
                 </div>
-                <p className='my-3 ml-4'>Shipping Information</p>
+                <p className='my-3 ml-4 font-semibold'>Shipping Information</p>
                 <div className='grid grid-cols-2 gap-x-0 gap-y-4 '>
 
                     <input type="text"

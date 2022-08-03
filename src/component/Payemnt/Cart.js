@@ -1,5 +1,5 @@
 import React from 'react';
-
+import shipping from '../../images/shipping-icon.png'
 const Cart = () => {
     return (
         <div>
@@ -21,6 +21,16 @@ const Cart = () => {
                 </div>
                 <h2 className='font-semibold '>$20</h2>
             </section>
+            <div className='flex justify-center mt-10'>
+                <div className='flex justify-center ' style={{ backgroundColor: '#C0C0C0', width: '75%', borderRadius: '20px', padding: '10px 15px' }}>
+                    <p>Total Cost</p>
+                    <p className='ml-6'>$40</p>
+                </div>
+            </div>
+            <div className='flex justify-center items-center mt-10'>
+                <img className='w-7 h-5' src={shipping} alt="" />
+                <h4 className='ml-8 font-semibold'>You Are $30.9 away <br /> from free Shipping</h4>
+            </div>
         </div>
     );
 };

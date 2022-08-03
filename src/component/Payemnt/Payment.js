@@ -12,12 +12,13 @@ import fedex from '../../images/feedex.png'
 import inpost from '../../images/inpost.png'
 import dpd from '../../images/dpdpng.png'
 
+
 const Payment = () => {
     return (
         <div>
             <div className='flex justify-evenly mt-12 mr-16 ml-24'>
 
-                <img className='w-7 h-5 mr-[-200px]' src={cart} alt="" />
+                <img className='w-7 h-5 ml-[200px]' src={cart} alt="" />
                 <img className='w-7 h-5' src={shipping} alt="" />
             </div>
             <div className='grid grid-cols-2 mt-12 gap-2'>
@@ -59,6 +60,7 @@ const Payment = () => {
                     <Cart></Cart>
                 </section>
             </div>
+
         </div>
     );
 };
