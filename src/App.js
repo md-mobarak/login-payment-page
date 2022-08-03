@@ -7,7 +7,7 @@ import Login from './component/Login.js/Login';
 
 function App() {
   return (
-    <div >
+    <div className='px-8'>
       <Navbar></Navbar>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
