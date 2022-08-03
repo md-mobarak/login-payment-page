@@ -33,7 +33,7 @@ const Navbar = () => {
                         </div>
                     </button>
                     <div>
-                        <img className='w-6 h-6 ml-3' src={element} alt="" />
+                        <img className='w-6 h-6 ml-3 hover:bg-base-200 hover:rounded-full hover:p2' src={element} alt="" />
                     </div>
                 </div>
             </div>
